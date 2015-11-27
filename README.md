@@ -1,0 +1,2 @@
+# MOORoundCorner
+通过Objc的分类方法解决在iOS开发中给控件添加圆角的之后导致界面UI的顿卡(FPS瞬间小于30甚至更低)
