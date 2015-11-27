@@ -27,18 +27,21 @@
 #pragma mark - 创建圆角的imageView
 - (UIImageView *)createRoundCornerRadiusBGImageView:(CGFloat)radius
 {
-    // 0.创建一个UIImageView，并添加到当前View层上
+    // 0.清除当前View的背景色
+    self.backgroundColor = [UIColor clearColor];
+    
+    // 1.创建一个UIImageView，并添加到当前View层上
     UIImageView *imageView = [[UIImageView alloc] init];
     [self addSubview:imageView];
     
-    // 1.将该UIImageView置于当前View的底层
+    // 2.将该UIImageView置于当前View的底层
     [self sendSubviewToBack:imageView];
     
-    // 2.设置imageView的圆角以及圆角半径
+    // 3.设置imageView的圆角以及圆角半径
     imageView.layer.cornerRadius = radius;
     imageView.layer.masksToBounds = YES;
     
-    // 3.添加约束
+    // 4.添加约束
     NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(imageView);
     imageView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|"
@@ -49,7 +52,7 @@
                                                                  options:0
                                                                  metrics:nil
                                                                    views:viewsDictionary]];
-    // 4.返回imageView
+    // 5.返回imageView
     return imageView;
 }
 
